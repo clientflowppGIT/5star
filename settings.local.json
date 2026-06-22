@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.facebook.com)",
+      "mcp__visualize__read_me",
+      "Bash(mkdir -p \"D:\\\\New folder\\\\5star\\\\.claude\")",
+      "mcp__Claude_Preview__preview_start",
+      "PowerShell(New-Item -ItemType Directory -Force \"D:\\\\New folder\\\\5star\\\\images\")"
+    ]
+  }
+}
