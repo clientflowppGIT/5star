@@ -2000,8 +2000,11 @@
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.querySelectorAll('.gallery-item img').forEach((img) => {
-    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  document.querySelectorAll('.gallery-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      if (img) openLightbox(img.src, img.alt);
+    });
   });
   lightbox.addEventListener('click', (e) => {
     if (e.target !== lightboxImg) closeLightbox();
