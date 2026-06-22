@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Star Fitness Centar – Varaždin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #FFD700;
+      --gold-dark: #e6c200;
+      --red: #CC0000;
+      --red-bright: #ff1a1a;
+      --bg: #111111;
+      --bg2: #1a1a1a;
+      --bg3: #222222;
+      --text: #ffffff;
+      --text-muted: #aaaaaa;
+      --border: #2a2a2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,215,0,0.15);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      position: relative;
+    }
+
+    .logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .logo-text span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--gold);
+      color: #000 !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold-dark) !important; transform: scale(1.05); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/gym2.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.88) 100%),
+        radial-gradient(ellipse 60% 50% at 70% 50%, rgba(204,0,0,0.18) 0%, transparent 60%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(60px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 5%;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,215,0,0.1);
+      border: 1px solid rgba(255,215,0,0.3);
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+      animation: fadeInDown 0.8s ease forwards;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 12vw, 130px);
+      line-height: 0.9;
+      letter-spacing: 4px;
+      color: var(--text);
+      margin-bottom: 10px;
+      animation: fadeInUp 0.8s 0.2s ease both;
+    }
+
+    .hero-title span { color: var(--gold); }
+
+    .hero-sub {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 5vw, 52px);
+      letter-spacing: 8px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      animation: fadeInUp 0.8s 0.35s ease both;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 580px;
+      margin: 0 auto 48px;
+      font-weight: 300;
+      animation: fadeInUp 0.8s 0.5s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s 0.65s ease both;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #000;
+      font-family: 'Oswald', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      font-family: 'Oswald', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 13px 36px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    .hero-stars {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      animation: fadeIn 1s 1s ease both;
+    }
+
+    .hero-stars span {
+      font-size: 20px;
+      color: var(--gold);
+      animation: starPulse 2s ease-in-out infinite;
+    }
+
+    .hero-stars span:nth-child(2) { animation-delay: 0.15s; }
+    .hero-stars span:nth-child(3) { animation-delay: 0.3s; }
+    .hero-stars span:nth-child(4) { animation-delay: 0.45s; }
+    .hero-stars span:nth-child(5) { animation-delay: 0.6s; }
+
+    @keyframes starPulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      right: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.5;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .scroll-indicator span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      51% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 100px 5%; }
+
+    .section-tag {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 6vw, 68px);
+      letter-spacing: 2px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .section-title span { color: var(--gold); }
+
+    .section-line {
+      width: 60px;
+      height: 3px;
+      background: var(--red);
+      margin-bottom: 24px;
+    }
+
+    .section-title-center { text-align: center; }
+    .section-line-center { margin-left: auto; margin-right: auto; }
+
+    /* ── STATS BAR ── */
+    #stats {
+      background: var(--gold);
+      padding: 0;
+    }
+
+    .stats-inner {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 28px 20px;
+      border-right: 1px solid rgba(0,0,0,0.1);
+      transition: background 0.2s;
+    }
+
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(0,0,0,0.05); }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      color: #000;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.6);
+      margin-top: 4px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--bg2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-img-frame {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .about-img-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.5) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .about-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .about-img-frame:hover img { transform: scale(1.04); }
+
+    .about-corner {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+
+    .about-corner.tl { top: -12px; left: -12px; border-width: 3px 0 0 3px; }
+    .about-corner.br { bottom: -12px; right: -12px; border-width: 0 3px 3px 0; }
+
+    .about-badge-num {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--gold);
+      color: #000;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .about-badge-num .big { font-size: 28px; line-height: 1; }
+    .about-badge-num .small { font-size: 11px; letter-spacing: 1px; }
+
+    .about-text p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .about-feat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .about-feat::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--bg);
+    }
+
+    .services-header { text-align: center; margin-bottom: 60px; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+
+    .service-card {
+      background: var(--bg2);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 3px;
+      background: var(--gold);
+      transition: width 0.4s ease;
+    }
+
+    .service-card:hover { background: var(--bg3); }
+    .service-card:hover::before { width: 100%; }
+
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 60px;
+      color: rgba(255,215,0,0.08);
+      line-height: 1;
+      margin-bottom: -10px;
+    }
+
+    .service-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .service-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ── PRICING ── */
+    #pricing {
+      background: var(--bg2);
+    }
+
+    .pricing-header { text-align: center; margin-bottom: 60px; }
+
+    .pricing-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 48px;
+    }
+
+    .ptab {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 32px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .ptab:first-child { border-radius: 2px 0 0 2px; }
+    .ptab:last-child { border-radius: 0 2px 2px 0; }
+    .ptab.active { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 700; }
+    .ptab:hover:not(.active) { border-color: rgba(255,215,0,0.4); color: var(--gold); }
+
+    .pricing-group { display: none; }
+    .pricing-group.active { display: block; }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .price-card:hover { border-color: rgba(255,215,0,0.4); transform: translateY(-4px); }
+
+    .price-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, #1e1e1e 0%, #222 100%);
+    }
+
+    .price-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    .price-badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    .price-badge.months6 { background: var(--gold); }
+
+    .price-type {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .price-amount {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .price-eur {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .price-cents {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--gold);
+      line-height: 1;
+      align-self: flex-start;
+      margin-top: 10px;
+    }
+
+    .price-period {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .price-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .price-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .price-perks li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .price-perks li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .price-cta {
+      margin-top: 28px;
+      display: block;
+      text-align: center;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 13px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .price-cta:hover { background: var(--gold-dark); }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .pricing-note::before {
+      content: '✓';
+      width: 20px;
+      height: 20px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      background: var(--bg);
+      padding-bottom: 80px;
+    }
+
+    .gallery-header { text-align: center; margin-bottom: 50px; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 220px);
+      gap: 3px;
+    }
+
+    .gallery-item {
+      background: var(--bg3);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item:first-child {
+      grid-row: span 2;
+    }
+
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(204,0,0,0.08));
+      z-index: 1;
+    }
+
+    .gallery-item:hover::before {
+      background: rgba(255,215,0,0.15);
+    }
+
+    .gallery-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover .gallery-inner { transform: scale(1.03); }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      z-index: 2;
+      transform: translateY(4px);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover .gallery-caption { transform: translateY(0); }
+
+    .gallery-fb-link {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .gallery-fb-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,215,0,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .gallery-fb-link a:hover { border-color: var(--gold); }
+
+    /* ── WHY ── */
+    #why {
+      background: var(--bg2);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px;
+      background: var(--bg3);
+      border-left: 3px solid var(--gold);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .why-item:hover { background: #2a2a2a; transform: translateX(4px); }
+
+    .why-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .why-content h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .why-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .why-visual {
+      position: relative;
+    }
+
+    .why-big-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(80px, 15vw, 160px);
+      line-height: 0.85;
+      color: rgba(255,215,0,0.06);
+      pointer-events: none;
+      user-select: none;
+      text-align: center;
+    }
+
+    .why-center-card {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-circle {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,215,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--bg2);
+      gap: 8px;
+      animation: rotateBorder 8s linear infinite;
+    }
+
+    @keyframes rotateBorder {
+      0% { box-shadow: 0 0 0 0 rgba(255,215,0,0.1), inset 0 0 0 0 rgba(255,215,0,0.05); }
+      50% { box-shadow: 0 0 30px 4px rgba(255,215,0,0.12), inset 0 0 0 0 rgba(255,215,0,0.05); }
+      100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.1), inset 0 0 0 0 rgba(255,215,0,0.05); }
+    }
+
+    .why-circle .stars { font-size: 22px; letter-spacing: 3px; }
+
+    .why-circle .big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .why-circle .small {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--bg);
+    }
+
+    .contact-header { margin-bottom: 60px; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,215,0,0.08);
+      border: 1px solid rgba(255,215,0,0.2);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-item-text h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .contact-item-text p, .contact-item-text a {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-decoration: none;
+    }
+
+    .contact-item-text a:hover { color: var(--gold); }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 20px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--text-muted);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hours-row .day { color: var(--text); font-weight: 400; }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .form-group label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--text);
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--gold); }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-group select option { background: var(--bg2); }
+
+    .form-submit {
+      background: var(--gold);
+      color: #000;
+      border: none;
+      font-family: 'Oswald', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 15px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+    /* ── MAP ── */
+    #map {
+      height: 350px;
+      background: var(--bg3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #1e1e1e 100%);
+      position: relative;
+    }
+
+    .map-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,215,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,215,0,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .map-pin {
+      font-size: 48px;
+      position: relative;
+      z-index: 1;
+      animation: pinBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes pinBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .map-address {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .map-address h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 2px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .map-address p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .map-link {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .map-link:hover { background: var(--gold-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0a0a;
+      padding: 60px 5% 30px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-top: 16px;
+      font-weight: 300;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 16px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .social-btn:hover { border-color: var(--gold); background: rgba(255,215,0,0.08); }
+
+    .footer-col h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer-logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 3px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .footer-logo-text span { color: var(--gold); }
+
+    .footer-logo-sub {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── MOBILE NAV ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: rgba(10,10,10,0.98);
+      padding: 20px 5%;
+      border-bottom: 1px solid var(--border);
+      z-index: 999;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #about { grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { max-width: 400px; margin: 0 auto; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-visual { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item:first-child { grid-row: span 1; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .stats-inner { flex-wrap: wrap; }
+      .stat-item { flex: 0 0 50%; border-bottom: 1px solid rgba(0,0,0,0.1); }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      section { padding: 70px 5%; }
+      .about-features { grid-template-columns: 1fr; }
+      .pricing-tabs { flex-direction: column; align-items: center; }
+      .ptab { width: 100%; max-width: 260px; text-align: center; border-radius: 2px !important; margin-bottom: 2px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Notification toast */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--gold);
+      color: #000;
+      padding: 14px 24px;
+      border-radius: 4px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
+      letter-spacing: 1px;
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s;
+    }
+
+    .toast.show { transform: translateY(0); opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle"
+        font-family="'Bebas Neue',sans-serif" font-size="14" fill="#FFD700" letter-spacing="1">5★★★★★</text>
+      <line x1="6" y1="42" x2="42" y2="42" stroke="#CC0000" stroke-width="2"/>
+    </svg>
+    <div>
+      <div class="logo-text"><span>5 STAR</span> FITNESS</div>
+      <div style="font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:3px;color:#666;text-transform:uppercase">Centar · Varaždin</div>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#about">O nama</a></li>
+    <li><a href="#services">Sadržaj</a></li>
+    <li><a href="#pricing">Cijene</a></li>
+    <li><a href="#gallery">Galerija</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+    <li><a href="#pricing" class="nav-cta">Učlani se</a></li>
+  </ul>
+
+  <button class="hamburger" id="hamburger" aria-label="Izbornik">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">O nama</a>
+  <a href="#services" onclick="closeMobile()">Sadržaj</a>
+  <a href="#pricing" onclick="closeMobile()">Cijene</a>
+  <a href="#gallery" onclick="closeMobile()">Galerija</a>
+  <a href="#contact" onclick="closeMobile()">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">★★★★★ Fitness Centar – Varaždin</div>
+    <h1 class="hero-title"><span>5 STAR</span><br>FITNESS</h1>
+    <div class="hero-sub">Centar</div>
+    <p class="hero-desc">
+      Varaždinov premium fitness centar. Vrhunska oprema, stručni treneri
+      i atmosfera koja te tjera da daš sve od sebe svaki dan.
+    </p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn-primary">Pogledaj cijene</a>
+      <a href="#about" class="btn-outline">Saznaj više</a>
+    </div>
+  </div>
+
+  <div class="hero-stars">
+    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num" data-count="500">0</div>
+      <div class="stat-label">Aktivnih članova</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="10">0</div>
+      <div class="stat-label">Godina iskustva</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="1000">0</div>
+      <div class="stat-label">m² prostora</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="5">0</div>
+      <div class="stat-label">Zvjezdica kvalitete</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">
+    <div class="about-img-frame">
+      <img src="images/gym5.jpg" alt="5 Star Fitness Centar – trening" />
+    </div>
+    <div class="about-corner tl"></div>
+    <div class="about-corner br"></div>
+    <div class="about-badge-num">
+      <span class="big">5★</span>
+      <span class="small">Premium</span>
+    </div>
+  </div>
+
+  <div class="about-text">
+    <div class="section-tag">O nama</div>
+    <h2 class="section-title">Više od<br>obične <span>teretane</span></h2>
+    <div class="section-line"></div>
+    <p>
+      5 Star Fitness Centar smješten je u srcu Varaždina na adresi
+      Zagrebačka 47. Naš cilj je pružiti ti premium fitness iskustvo
+      dostupno svima – bez obzira na tvoju razinu kondicije ili iskustvo.
+    </p>
+    <p>
+      Opremljeni najmodernijim spravama, nudimo sve što ti treba za
+      potpunu transformaciju tijela i uma. Naši stručni treneri uvijek
+      su tu da te vode i motiviraju na putu do tvojih ciljeva.
+    </p>
+    <div class="about-features">
+      <div class="about-feat">Moderna oprema</div>
+      <div class="about-feat">Stručni treneri</div>
+      <div class="about-feat">Osobni trening</div>
+      <div class="about-feat">Svlačionice</div>
+      <div class="about-feat">Tuševi</div>
+      <div class="about-feat">Parkiralište</div>
+      <div class="about-feat">Klimatizirani prostor</div>
+      <div class="about-feat">Zamrzavanje kartice</div>
+    </div>
+    <div style="margin-top:36px">
+      <a href="#contact" class="btn-primary">Kontaktiraj nas</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-tag">Što nudimo</div>
+    <h2 class="section-title section-title-center">Naš <span>sadržaj</span></h2>
+    <div class="section-line section-line-center"></div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <span class="service-icon">💪</span>
+      <div class="service-title">Cardio zona</div>
+      <p class="service-desc">Trake za trčanje, bicikli, eliptični trenažeri i ostale cardio sprave vrhunskih marki za maksimalan učinak.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <span class="service-icon">🏋️</span>
+      <div class="service-title">Slobodni utezi</div>
+      <p class="service-desc">Kompletna zona slobodnih utega s bučicama, šipkama i klupama za sve vrste treninga snage.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <span class="service-icon">🔧</span>
+      <div class="service-title">Sprave za snagu</div>
+      <p class="service-desc">Profesionalne izolacijske sprave za svaku mišićnu grupu. Idealno za početnike i napredne.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <span class="service-icon">🎯</span>
+      <div class="service-title">Osobni trening</div>
+      <p class="service-desc">Individualni pristup, personalizirani plan treninga i prehrane prilagođen tvojim ciljevima.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">05</div>
+      <span class="service-icon">🧘</span>
+      <div class="service-title">Stretching zona</div>
+      <p class="service-desc">Opuštanje i istezanje nakon treninga. Yoga prostirke, role i sve što trebaš za oporavak.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="pricing-header reveal">
+    <div class="section-tag">Članstvo</div>
+    <h2 class="section-title section-title-center">Cijene <span>članarine</span></h2>
+    <div class="section-line section-line-center"></div>
+    <p style="color:var(--text-muted);font-size:15px;max-width:500px;margin:0 auto">
+      Transparentne cijene bez skrivenih troškova. Odaberi plan koji ti odgovara.
+    </p>
+  </div>
+
+  <div class="pricing-tabs">
+    <button class="ptab active" onclick="switchTab('standard')">Standardno</button>
+    <button class="ptab" onclick="switchTab('student')">Studenti &amp; Učenici</button>
+  </div>
+
+  <div class="pricing-group active" id="tab-standard">
+    <div class="pricing-cards">
+
+      <div class="price-card featured reveal">
+        <span class="price-badge">12 Mjeseci</span>
+        <div class="price-type">Godišnja karta</div>
+        <div class="price-amount">
+          <div class="price-eur">28</div>
+          <div class="price-cents">,50€</div>
+        </div>
+        <div class="price-period">/ mjesečno · plaćanje unaprijed</div>
+        <div class="price-divider"></div>
+        <ul class="price-perks">
+          <li>Neograničen ulaz</li>
+          <li>Sve zone uključene</li>
+          <li>Mogućnost zamrzavanja karte</li>
+          <li>Svlačionice i tuševi</li>
+          <li>Najniža cijena po mjesecu</li>
+        </ul>
+        <a href="#contact" class="price-cta">Učlani se</a>
+      </div>
+
+      <div class="price-card reveal">
+        <span class="price-badge months6">6 Mjeseci</span>
+        <div class="price-type">Polugodišnja karta</div>
+        <div class="price-amount">
+          <div class="price-eur">32</div>
+          <div class="price-cents">€</div>
+        </div>
+        <div class="price-period">/ mjesečno · plaćanje unaprijed</div>
+        <div class="price-divider"></div>
+        <ul class="price-perks">
+          <li>Neograničen ulaz</li>
+          <li>Sve zone uključene</li>
+          <li>Mogućnost zamrzavanja karte</li>
+          <li>Svlačionice i tuševi</li>
+          <li>Fleksibilnost trajanja</li>
+        </ul>
+        <a href="#contact" class="price-cta">Učlani se</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pricing-group" id="tab-student">
+    <div class="pricing-cards">
+
+      <div class="price-card featured reveal">
+        <span class="price-badge">12 Mjeseci</span>
+        <div class="price-type">Godišnja karta</div>
+        <div class="price-amount">
+          <div class="price-eur">24</div>
+          <div class="price-cents">,50€</div>
+        </div>
+        <div class="price-period">/ mjesečno · uz predočenje iskaznice</div>
+        <div class="price-divider"></div>
+        <ul class="price-perks">
+          <li>Studentska/đačka pogodnost</li>
+          <li>Neograničen ulaz</li>
+          <li>Sve zone uključene</li>
+          <li>Mogućnost zamrzavanja karte</li>
+          <li>Svlačionice i tuševi</li>
+        </ul>
+        <a href="#contact" class="price-cta">Učlani se</a>
+      </div>
+
+      <div class="price-card reveal">
+        <span class="price-badge months6">6 Mjeseci</span>
+        <div class="price-type">Polugodišnja karta</div>
+        <div class="price-amount">
+          <div class="price-eur">28</div>
+          <div class="price-cents">,50€</div>
+        </div>
+        <div class="price-period">/ mjesečno · uz predočenje iskaznice</div>
+        <div class="price-divider"></div>
+        <ul class="price-perks">
+          <li>Studentska/đačka pogodnost</li>
+          <li>Neograničen ulaz</li>
+          <li>Sve zone uključene</li>
+          <li>Mogućnost zamrzavanja karte</li>
+          <li>Svlačionice i tuševi</li>
+        </ul>
+        <a href="#contact" class="price-cta">Učlani se</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pricing-note reveal">
+    <span style="background:var(--red);color:#fff;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">✓</span>
+    Mogućnost zamrzavanja karte uključena u sve pakete
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-tag">Pogledaj</div>
+    <h2 class="section-title section-title-center">Naš <span>prostor</span></h2>
+    <div class="section-line section-line-center"></div>
+  </div>
+
+  <div class="gallery-grid reveal">
+    <div class="gallery-item">
+      <img src="images/gym2.jpg" alt="5 Star Fitness – sala s opremom" />
+      <div class="gallery-caption">Sala s opremom</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/gym1.jpg" alt="5 Star Fitness – Panatta sprave" />
+      <div class="gallery-caption">Panatta sprave</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/gym5.jpg" alt="5 Star Fitness – trening" />
+      <div class="gallery-caption">Trening</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/gym3.jpg" alt="5 Star Fitness – zona sprava" />
+      <div class="gallery-caption">Zona sprava</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/gym4.jpg" alt="5 Star Fitness – funkcionalna zona" />
+      <div class="gallery-caption">Funkcionalna zona</div>
+    </div>
+  </div>
+
+  <div class="gallery-fb-link reveal" style="margin-top:32px">
+    <a href="https://www.facebook.com/5Starfitnesscentar/" target="_blank" rel="noopener">
+      📘 Pogledaj više fotografija na Facebooku →
+    </a>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="section-tag">Zašto mi?</div>
+  <h2 class="section-title">Zašto <span>5 Star</span></h2>
+  <div class="section-line"></div>
+
+  <div class="why-grid">
+    <div class="why-list">
+      <div class="why-item reveal">
+        <div class="why-num">01</div>
+        <div class="why-content">
+          <h3>Premium oprema</h3>
+          <p>Investiramo u najkvalitetnije sprave i opremu kako bi svaki tvoj trening bio na vrhunskoj razini.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-num">02</div>
+        <div class="why-content">
+          <h3>Stručni treneri</h3>
+          <p>Naš tim certificiranih trenera uvijek je spreman pomoći ti postići ciljeve brže i sigurnije.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-num">03</div>
+        <div class="why-content">
+          <h3>Povoljne cijene</h3>
+          <p>Premium usluga po dostupnoj cijeni. Godišnja karta već od 24,50€/mj za studente i učenike.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-num">04</div>
+        <div class="why-content">
+          <h3>Fleksibilnost</h3>
+          <p>Mogućnost zamrzavanja kartice, izbor trajanja pretplate i fleksibilno radno vrijeme.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-visual">
+      <div class="why-big-text">5★</div>
+      <div class="why-center-card">
+        <div class="why-circle">
+          <div class="stars">★★★★★</div>
+          <div class="big">5</div>
+          <div class="small">Star Fitness</div>
+          <div style="font-size:11px;color:var(--text-muted);font-family:'Oswald',sans-serif;letter-spacing:1px">Varaždin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-header reveal">
+    <div class="section-tag">Kontakt</div>
+    <h2 class="section-title">Javi <span>nam se</span></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item reveal">
+        <div class="contact-icon">📍</div>
+        <div class="contact-item-text">
+          <h4>Adresa</h4>
+          <p>Zagrebačka 47<br>42000 Varaždin, Hrvatska</p>
+        </div>
+      </div>
+
+      <div class="contact-item reveal">
+        <div class="contact-icon">📘</div>
+        <div class="contact-item-text">
+          <h4>Facebook</h4>
+          <a href="https://www.facebook.com/5Starfitnesscentar/" target="_blank" rel="noopener">
+            facebook.com/5Starfitnesscentar
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-item reveal">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-item-text">
+          <h4>Radno vrijeme</h4>
+          <div class="hours-grid">
+            <div class="hours-row"><span class="day">Pon – Pet</span><span>06:30 – 22:00</span></div>
+            <div class="hours-row"><span class="day">Subota</span><span>10:00 – 18:00</span></div>
+            <div class="hours-row"><span class="day">Nedjelja</span><span>10:00 – 18:00</span></div>
+            <div class="hours-row"><span class="day">Praznici</span><span>Ne Radimo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;margin-bottom:24px">
+        Pošalji <span style="color:var(--gold)">upit</span>
+      </h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ime</label>
+          <input type="text" placeholder="Tvoje ime" id="fname" />
+        </div>
+        <div class="form-group">
+          <label>Prezime</label>
+          <input type="text" placeholder="Tvoje prezime" id="lname" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="email@primjer.hr" id="femail" />
+      </div>
+      <div class="form-group">
+        <label>Zanima me</label>
+        <select id="ftype">
+          <option value="">Odaberi opciju...</option>
+          <option>Godišnja karta – Standardno</option>
+          <option>Polugodišnja karta – Standardno</option>
+          <option>Godišnja karta – Student/Učenik</option>
+          <option>Polugodišnja karta – Student/Učenik</option>
+          <option>Osobni trening</option>
+          <option>Opće informacije</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Poruka</label>
+        <textarea placeholder="Napiši svoju poruku..." id="fmsg"></textarea>
+      </div>
+      <button class="form-submit" onclick="sendForm()">Pošalji upit →</button>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div id="map">
+  <div class="map-placeholder">
+    <div class="map-grid-bg"></div>
+    <div class="map-pin">📍</div>
+    <div class="map-address">
+      <h3>5 Star Fitness Centar</h3>
+      <p>Zagrebačka 47, 42000 Varaždin</p>
+    </div>
+    <a href="https://www.google.com/maps/search/Zagreba%C4%8Dka+47+Vara%C5%BEdin" target="_blank" rel="noopener" class="map-link">
+      Otvori u Google Maps →
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-text"><span>5 STAR</span> FITNESS</div>
+      <div class="footer-logo-sub">Centar · Varaždin</div>
+      <p>Tvoj premium fitness partner u Varaždinu. Vrhunska oprema, stručni treneri i zajednica koja te motivira svakog dana.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/5Starfitnesscentar/" target="_blank" rel="noopener" class="social-btn" title="Facebook">📘</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-btn" title="Instagram">📸</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigacija</h4>
+      <ul>
+        <li><a href="#about">O nama</a></li>
+        <li><a href="#services">Sadržaj</a></li>
+        <li><a href="#pricing">Cijene</a></li>
+        <li><a href="#gallery">Galerija</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Članstvo</h4>
+      <ul>
+        <li><a href="#pricing">Godišnja karta</a></li>
+        <li><a href="#pricing">Polugodišnja karta</a></li>
+        <li><a href="#pricing">Studentske cijene</a></li>
+        <li><a href="#pricing">Zamrzavanje karte</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="#">Zagrebačka 47, Varaždin</a></li>
+        <li><a href="https://www.facebook.com/5Starfitnesscentar/" target="_blank">Facebook stranica</a></li>
+      </ul>
+      <div style="margin-top:16px">
+        <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">Radno vrijeme</div>
+        <div style="font-size:13px;color:var(--text-muted)">Pon–Pet: 06:30–22:00</div>
+        <div style="font-size:13px;color:var(--text-muted)">Sub: 10:00–18:00</div>
+        <div style="font-size:13px;color:var(--text-muted)">Ned: 10:00–18:00</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 5 Star Fitness Centar Varaždin. Sva prava pridržana.</p>
+    <div class="hero-stars" style="position:static;transform:none;animation:none">
+      <span style="font-size:14px;animation:none;opacity:0.4">★</span>
+      <span style="font-size:14px;animation:none;opacity:0.4">★</span>
+      <span style="font-size:14px;animation:none;opacity:0.4">★</span>
+      <span style="font-size:14px;animation:none;opacity:0.4">★</span>
+      <span style="font-size:14px;animation:none;opacity:0.4">★</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">Poruka poslana! Javit ćemo vam se uskoro. ★</div>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() { mobileMenu.classList.remove('open'); }
+
+  // Pricing tabs
+  function switchTab(tab) {
+    document.querySelectorAll('.ptab').forEach((t, i) => {
+      t.classList.toggle('active', (tab === 'standard' && i === 0) || (tab === 'student' && i === 1));
+    });
+    document.querySelectorAll('.pricing-group').forEach(g => g.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Count-up animation
+  function animateCount(el) {
+    const target = parseInt(el.dataset.count);
+    const duration = 1500;
+    const start = performance.now();
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(ease * target) + (target >= 1000 ? 'm²' : target === 5 ? '★' : '+');
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  const statsEl = document.getElementById('stats');
+  const statsObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      document.querySelectorAll('.stat-num').forEach(animateCount);
+      statsObs.disconnect();
+    }
+  }, { threshold: 0.5 });
+  statsObs.observe(statsEl);
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.background = window.scrollY > 50
+      ? 'rgba(5,5,5,0.98)'
+      : 'rgba(10,10,10,0.95)';
+  });
+
+  // Form submit
+  function sendForm() {
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    if (!name || !email) {
+      alert('Molimo unesite ime i e-mail adresu.');
+      return;
+    }
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+    document.getElementById('fname').value = '';
+    document.getElementById('lname').value = '';
+    document.getElementById('femail').value = '';
+    document.getElementById('ftype').value = '';
+    document.getElementById('fmsg').value = '';
+  }
+</script>
+</body>
+</html>
